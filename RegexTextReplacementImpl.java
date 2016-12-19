@@ -16,7 +16,6 @@ import Interface.RegexTextReplacement;
  *
  */
 public class RegexTextReplacementImpl implements RegexTextReplacement{
-
 	
 	public  Map processFile(File file, String fileAcceptPattern, String regexPattern, 
 			String replacement, Map occuranceMap){
@@ -25,7 +24,6 @@ public class RegexTextReplacementImpl implements RegexTextReplacement{
 		FileWriter writer = null;
 			String outputFileName = "";
 			outputFileName = file + ".processed";
-			
 			String newText = null;
 			try {
 				reader = new BufferedReader(new FileReader(file));
@@ -53,7 +51,6 @@ public class RegexTextReplacementImpl implements RegexTextReplacement{
 					}
 					writer.write("\r\n");
 				}
-				
 			} catch (FileNotFoundException ne) {
 				System.out.println("File not found : " + ne.getMessage());
 			} catch (IOException oe){
