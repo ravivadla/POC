@@ -47,7 +47,6 @@ public class RegexTextReplacementInFiles {
 					occuranceMap = rex.processFile(file,fileAcceptPattern, regexPattern, replacement, occuranceMap);
 					set = occuranceMap.entrySet();
 					list = new ArrayList<Entry<String, Integer>>(set);
-
 				}
 			}
 		} else if(dir.list()==null && checkFileType(dir, fileAcceptPattern)){
@@ -56,7 +55,6 @@ public class RegexTextReplacementInFiles {
 			occuranceMap = rex.processFile(dir,fileAcceptPattern, regexPattern, replacement, occuranceMap);
 			set = occuranceMap.entrySet();
 			list = new ArrayList<Entry<String, Integer>>(set);
-
 		}
 	}
 	
@@ -83,69 +81,6 @@ public class RegexTextReplacementInFiles {
 		}
 		return list;
 	}
-	
-	/**
-	 * core logic to generate files
-	 * @param file
-	 * @param fileAcceptPattern
-	 * @param regexPattern
-	 * @param replacement
-	 * @param flag
-	 */
-	/*private static void processFile(File file, String fileAcceptPattern, String regexPattern, String replacement, boolean flag){
-			
-		BufferedReader reader = null;
-		FileWriter writer = null;
-			fileCount++;
-			String outputFileName = "";
-			if(flag){
-				outputFileName = file + ".processed";
-			}else{
-				outputFileName = file + "\\" + file.getName() + ".processed";
-			}
-			String newText = null;
-			try {
-				reader = new BufferedReader(new FileReader(file));
-				writer = new FileWriter(outputFileName);
-				String line = "";
-				while ((line = reader.readLine()) != null) {
-					String[] token = line.split(" ");
-					for (String s : token) {
-						if(s.contains(",")){
-							s = s.replace(",", "");
-						}
-						newText = s;
-						//code block to match, replace first one and store the matching words
-						if (newText.contains(regexPattern)) {
-							if (occuranceMap.get(newText) != null) {
-								occuranceMap.put(newText, (occuranceMap.get(newText) + 1));
-								newText = newText.replaceAll(regexPattern, replacement);
-							} else {
-								occuranceMap.put(newText, 1);
-								newText = newText.replaceAll(regexPattern, replacement);
-							}
-						}
-						writer.write(newText + " ");
-					}
-					writer.write("\r\n");
-				}
-				set = occuranceMap.entrySet();
-				list = new ArrayList<Entry<String, Integer>>(set);
-			} catch (FileNotFoundException ne) {
-				System.out.println("File not found : " + ne.getMessage());
-			} catch (IOException oe){
-				System.out.println("IO Exception :"+ oe.getMessage());
-			} catch (Exception e){
-				System.out.println("Exception :"+ e.getMessage());
-			} finally {
-				try {
-					if(reader != null) reader.close();
-					if(writer != null)writer.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-	}*/
 	
 	/**
 	 * method to check the condition on the file as per file acceptance pattern
