@@ -9,7 +9,6 @@ import java.util.Map;
  *
  */
 public interface RegexTextReplacement {
-
 	public  Map processFile(File file, String fileAcceptPattern, String regexPattern, 
 			String replacement, Map occuranceMap);
 }
